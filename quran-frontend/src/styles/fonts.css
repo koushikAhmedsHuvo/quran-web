@@ -1,0 +1,7 @@
+/* Import Arabic fonts here */
+@import url("https://fonts.googleapis.com/css2?family=Amiri&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Scheherazade&display=swap");
+
+.font-arabic {
+  font-family: "Amiri", "Scheherazade", serif;
+}
