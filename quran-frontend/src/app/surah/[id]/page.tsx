@@ -27,10 +27,10 @@ export default function SurahPage() {
     setSurah(null);
     setAyahs([]);
 
-    Promise.all([
-      fetchSurah(surahId),
-      fetchAyahs(surahId, 1, 300, selectedEditionId),
-    ])
+    // Fall back to Saheeh International (id 20) so translations always show
+    const editionId = selectedEditionId ?? 20;
+
+    Promise.all([fetchSurah(surahId), fetchAyahs(surahId, 1, 300, editionId)])
       .then(([surahData, ayahsData]) => {
         setSurah(surahData);
         setAyahs(ayahsData.data);

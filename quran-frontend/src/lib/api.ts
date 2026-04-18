@@ -1,7 +1,10 @@
 import type { Surah, Edition } from "@/types/surah";
 import type { Ayah, PaginatedResponse, SearchResult } from "@/types/ayah";
 
-const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
+// In production (Vercel), API routes are served from the same origin.
+// In local dev against the Hono backend, set NEXT_PUBLIC_API_URL=http://localhost:3000
+// and the paths below stay compatible (/surah, /editions, /search).
+const API_BASE = process.env.NEXT_PUBLIC_API_URL || "/api";
 
 export async function fetchSurahs(): Promise<Surah[]> {
   const res = await fetch(`${API_BASE}/surah`);

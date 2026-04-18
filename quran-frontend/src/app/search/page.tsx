@@ -34,7 +34,8 @@ export default function SearchPage() {
     setError(null);
     setSearched(true);
     try {
-      const res = await searchAyahs(query.trim(), 1, 30, selectedEditionId);
+      const editionId = selectedEditionId ?? 20;
+      const res = await searchAyahs(query.trim(), 1, 30, editionId);
       setResults(res.data);
       setTotal(res.meta.total);
     } catch (e) {

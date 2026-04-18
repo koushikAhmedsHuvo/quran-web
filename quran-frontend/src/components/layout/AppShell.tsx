@@ -20,13 +20,17 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
           const parsed = stored ? JSON.parse(stored) : {};
           if (!parsed.selectedEditionId && editions.length > 0) {
             const english =
-              editions.find((e) => e.language === "en") ?? editions[0];
+              editions.find((e) => e.identifier === "en.sahih") ??
+              editions.find((e) => e.language === "en") ??
+              editions[0];
             if (english) setSelectedEditionId(english.id);
           }
         } catch {
           if (editions.length > 0) {
             const english =
-              editions.find((e) => e.language === "en") ?? editions[0];
+              editions.find((e) => e.identifier === "en.sahih") ??
+              editions.find((e) => e.language === "en") ??
+              editions[0];
             if (english) setSelectedEditionId(english.id);
           }
         }
